@@ -1,0 +1,116 @@
+body{
+    margin:0;
+    padding:0;
+    text-align:left;
+    font-size: 32px;
+}
+header{
+    background-color: #fff;
+    border-bottom: 1px solid #ccc;
+    text-align: center;
+}
+main{
+    border-bottom:1px solid #ccc;
+    align-items: center;
+    
+}
+footer{
+    background-color: #fff;
+    border-bottom:1px solid #ccc;
+    text-align: center;
+}
+p{
+    font-size:200%;
+    text-align: center;
+    border-bottom:1px solid #fff;
+    height:200px;
+}
+ul{
+    padding: 0;
+    border-top: 1px solid #000000;
+    display:table;  /* 定義 */
+    table-layout: fixed;
+    width:100%;
+}
+li{
+    text-align: center;
+    list-style-type:none;
+    border: 1px solid #666;
+    background-color: #FFF;
+    display:table-cell;  /* 定義 */
+    cursor: pointer;
+}
+li:hover{
+    background: #0066CC;
+    color:#fff;
+    opacity: 0.5;
+}
+
+.contents{
+    display: flex;
+    flex-wrap: wrap;
+    height: 300px;
+    align-items: center;
+    justify-content: center;
+}
+.item {
+    width: calc(100%/3);
+    padding: 20px;
+    margin: 20px;
+    text-align: center;
+    max-width: 220px;
+    
+}
+
+.image{
+    opacity: 1;
+    display: block;
+    width: 100%;
+    height: auto;
+    transition: .5s ease;
+    backface-visibility: hidden;
+}
+.middle {
+    transition: .5s ease;
+    opacity: 0;
+    position: relative;
+    top: -140px;
+    left: 50%;
+    transform: translate(-50%,0);
+    text-align: center;
+
+  }
+ .image_text{
+    color: black;
+    font-size: 28px;
+    margin: 0;
+    padding: 0;
+  }
+  
+.image:hover{
+    opacity: 0.3;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.item:hover .middle {
+    opacity: 1;
+  }
+
+.item:hover .image_text {
+    opacity: 1;
+}
+
+.judgment{
+    transition: .1s ease;
+    text-align: center;
+}
+
+.judgment.transition{
+    transition: 1s ease;
+    opacity: 1.0;
+    font-size: 48px;
+    font-weight: bold;
+    color: #e62f0e;
+    text-align: center;
+}

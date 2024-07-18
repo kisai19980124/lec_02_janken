@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<script src="js/jquery-2.1.3.min.js"></script>
+<link rel="stylesheet" href="css/sample.css">
+<title>じゃんけん</title>
+</head>
+<body>
+
+<header>
+  <h1>じゃんけん</h1>
+</header>
+
+<main>
+  <div class="contents">
+    <div class="item" id="gu_btn">
+      <img class="image" src="./img/janken_gu.png" >
+      <div class="middle">
+        <div class="image_text" >グーを出す</div>
+      </div>
+    </div>
+    <div class="item" id="cho_btn">
+      <img class="image" src="./img/janken_choki.png" >
+      <div class="middle">
+        <div class="image_text" >チョキを出す</div>
+      </div>
+    </div>
+    <div class="item" id="par_btn">
+      <img class="image" src="./img/janken_pa.png" >
+      <div class="middle">
+        <div class="image_text" >パーを出す</div>
+      </div>
+    </div>
+  </div>
+
+  <div>コンピュータの出した手は？「<span id="pc_hands">なに？</span>」</div>
+  <div id="judgment" class="judgment"></div>
+</main>
+
+<footer></footer>
+<script>
+//じゃんけん用のSCRIPTを書いてください
+
+//0:グー 1:チョキ 2:パー
+var hands = {
+  gu_btn : 0,
+  cho_btn : 1,
+  par_btn : 2
+};
+var winlose = {
+  0: "あいこ",
+  1: "負け",
+  2: "勝ち"
+};
+var num_to_hand = {
+  0: "グー",
+  1: "チョキ",
+  2: "パー"
+};
+
+$("#gu_btn,#cho_btn,#par_btn").on("click", function(){
+  $("#judgment").removeClass("transition"); 
+  $("#judgment").text(""); 
+  var pchand_num = Math.floor(Math.random() * 3); //乱数生成
+  $("#pc_hands").text(num_to_hand[pchand_num]); //乱数→出した手
+  var winlose_result = (hands[this.id]- pchand_num + 3) % 3//クリックしたボタンとPCの手の判定(数字に)
+  $("#judgment").addClass("transition"); 
+  $("#judgment").text(winlose[winlose_result]); 
+});
+
+</script>
+</body>
+</html>
